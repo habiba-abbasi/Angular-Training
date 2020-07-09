@@ -3,27 +3,29 @@
   <div class="row">
 
     <div class="col-sm-8 offset-sm-2">
-
+<h4>Student Form</h4>
       <div>
         <form>
           <div class="form-group">
-            <label for="id">ID</label>
+            <!-- <label for="id">ID</label>
             <input [(ngModel)]="contact.id" type="text" name="id" class="form-control" id="id" aria-describedby="idHelp" placeholder="Enter ID">
             <small id="idHelp" class="form-text text-muted">Enter your contact’s ID</small>
+            <br> -->
+            <label for="name">Name</label>
+            <input [(ngModel)]="contact.firstName" type="text" name="firstName" class="form-control" id="firstName" aria-describedby="nameHelp" placeholder="Enter First name">
+            <!-- <small id="nameHelp" class="form-text text-muted">Enter your contact’s name</small> -->
 
-            <label for="name">Contact Name</label>
-            <input [(ngModel)]="contact.name" type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter your name">
-            <small id="nameHelp" class="form-text text-muted">Enter your contact’s name</small>
-
-            <label for="email">Contact Email</label>
-            <input [(ngModel)]="contact.email" type="text" name="email" class="form-control" id="email" aria-describedby="emailHelp"
-              placeholder="Enter your email">
-            <small id="nameHelp" class="form-text text-muted">Enter your contact’s email</small>
-
-            <label for="description">Contact Description</label>
-            <textarea [(ngModel)]="contact.description" name="description" class="form-control" id="description" aria-describedby="descHelp">
-                      </textarea>
-            <small id="descHelp" class="form-text text-muted">Enter your contact’s description</small>
+            <input [(ngModel)]="contact.lastName" type="text" name="lastName" class="form-control" id="lastName" aria-describedby="nameHelp" placeholder="Enter Last name">
+            <!-- <small id="nameHelp" class="form-text text-muted">Enter your contact’s name</small> -->
+            <br>
+            <label for="email">Age</label>
+            <input [(ngModel)]="contact.age" type="number" name="age" class="form-control" id="age" aria-describedby="ageHelp"
+              placeholder="Enter Age">
+            <!-- <small id="nameHelp" class="form-text text-muted">Enter your contact’s email</small> -->
+            <br>
+            <label for="description">Department</label>
+            <input [(ngModel)]="contact.department" placeholder="Enter Department" type="text" name="department" class="form-control" id="department" aria-describedby="descHelp">
+            <!-- <small id="descHelp" class="form-text text-muted">Enter your contact’s description</small> -->
 
           </div>
         </form>
@@ -36,7 +38,8 @@
   <div *ngIf="showContent">
     <h5>Response</h5>
      <li *ngIf="contact.id"><p class="a">Id:</p><p class="a">{{contact.id}}</p></li>
-     <li *ngIf="contact.name"><p class="a">Name:</p><p class="a">{{contact.name}}</p></li>
-     <li  *ngIf="contact.email"><p class="a">Email:</p><p class="a">{{contact.email}}</p></li>
+     <li *ngIf="contact.firstName"><p class="a">Name:</p><p class="a">{{contact.firstName}} {{contact.firstName}}</p></li>
+     <li  *ngIf="contact.age"><p class="a">Age:</p><p class="a">{{contact.age}}</p></li>
+     <li  *ngIf="contact.department"><p class="a">Department:</p><p class="a">{{contact.department}}</p></li>
 </div>
 </div>

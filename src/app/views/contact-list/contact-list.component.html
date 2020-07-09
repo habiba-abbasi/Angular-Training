@@ -1,0 +1,19 @@
+<div class="container" style="margin-top: 20px;">
+</div>
+<div class="jumbotron" style="background-color: #fff; height: calc(95vh);">
+  <h4>Students Record</h4>
+  <div><input type="text"[(ngModel)]="stud.firstName" placeholder="First name">
+       <input type="text"[(ngModel)]="stud.lastName"placeholder="Last name">
+       <input type="number"[(ngModel)]="stud.age"placeholder="Age">
+       <input type="text" [(ngModel)]="stud.department" placeholder="Department">
+       <button class="margin" style="margin-bottom: 10px;" [disabled]='!enableEdit' (click)="updateRecord()">Update</button>
+      </div>
+  <div *ngFor='let student of StudentList; let i=index'>
+    <div  class="b">
+    <p class="margin">Name: {{student.firstName}} {{student.lastName}}</p>
+    <p class="margin">Age: {{student.age}}</p>
+    <p class="margin">Department: {{student.department}}</p>
+    <button class="margin" style="margin-bottom: 10px;" (click)="editRecord(student,i)">Edit</button>
+  </div>
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { ContactListComponent } from './views/contact-list/contact-list.componen
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ContactCreateComponent } from './views/contact-create/contact-create.component';
+import { Utility } from './utility/utility';
 
 @NgModule({
   declarations: [
@@ -16,14 +17,16 @@ import { ContactCreateComponent } from './views/contact-create/contact-create.co
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    ContactCreateComponent
+    ContactCreateComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+
   ],
-  providers: [],
+  providers: [ Utility],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
