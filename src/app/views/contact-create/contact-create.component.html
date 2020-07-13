@@ -5,32 +5,42 @@
     <div class="col-sm-8 offset-sm-2">
 <h4>Student Form</h4>
       <div>
-        <form>
+        <form [formGroup]="form">
           <div class="form-group">
             <!-- <label for="id">ID</label>
             <input [(ngModel)]="contact.id" type="text" name="id" class="form-control" id="id" aria-describedby="idHelp" placeholder="Enter ID">
             <small id="idHelp" class="form-text text-muted">Enter your contact’s ID</small>
             <br> -->
             <label for="name">Name</label>
-            <input [(ngModel)]="contact.firstName" type="text" name="firstName" class="form-control" id="firstName" aria-describedby="nameHelp" placeholder="Enter First name">
+            <input type="text" name="firstName" formControlName="firstName" class="form-control" id="firstName" aria-describedby="nameHelp" placeholder="Enter First name">
             <!-- <small id="nameHelp" class="form-text text-muted">Enter your contact’s name</small> -->
-
-            <input [(ngModel)]="contact.lastName" type="text" name="lastName" class="form-control" id="lastName" aria-describedby="nameHelp" placeholder="Enter Last name">
+             <div *ngIf="form.controls.firstName.invalid && (form.controls.firstName.dirty || form.controls.firstName.touched)">
+                <span class='error'>First Name is required.</span>
+             </div>
+            <input type="text" name="lastName" formControlName="lastName" class="form-control" id="lastName" aria-describedby="nameHelp" placeholder="Enter Last name">
+            <div *ngIf="form.controls.lastName.invalid && (form.controls.lastName.dirty || form.controls.lastName.touched)">
+              <span class='error'>Last Name is required.</span>
+           </div>
             <!-- <small id="nameHelp" class="form-text text-muted">Enter your contact’s name</small> -->
             <br>
             <label for="email">Age</label>
-            <input [(ngModel)]="contact.age" type="number" name="age" class="form-control" id="age" aria-describedby="ageHelp"
+            <input type="number" name="age" formControlName="age" class="form-control" id="age" aria-describedby="ageHelp"
               placeholder="Enter Age">
+            <div *ngIf="form.controls.age.invalid && (form.controls.age.dirty || form.controls.age.touched)">
+              <span class='error'>Age is required.</span>
+            </div>
             <!-- <small id="nameHelp" class="form-text text-muted">Enter your contact’s email</small> -->
             <br>
             <label for="description">Department</label>
-            <input [(ngModel)]="contact.department" placeholder="Enter Department" type="text" name="department" class="form-control" id="department" aria-describedby="descHelp">
+            <input  placeholder="Enter Department" formControlName="department" type="text" name="department" class="form-control" id="department" aria-describedby="descHelp">
+
             <!-- <small id="descHelp" class="form-text text-muted">Enter your contact’s description</small> -->
 
           </div>
+          <button class="btn btn-primary" [disabled]="!form.valid" (click)="createContact()">Add Student</button>
         </form>
 
-        <button class="btn btn-primary" (click)="createContact()">Create contact</button>
+
       </div>
     </div>
 

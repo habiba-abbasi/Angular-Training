@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Student } from '../models/student';
 
 @Injectable()
 
 export class Utility {
 
   studentList: any = [];
-  public stud : {id, firstName, lastName, age, department}= {id: null, firstName: "",lastName: "", age: "", department: ""};
+  public stud : Student;
 
   setStudent(student: any){
     // tslint:disable-next-line: max-line-length
@@ -16,7 +17,7 @@ export class Utility {
   getStudent(){
     return this.studentList;
   }
-  updateStudent(student: any, index: number){
+  updateStudent(student: Student, index: number){
     this.studentList[index] = student;
   }
 }

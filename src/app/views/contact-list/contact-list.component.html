@@ -7,7 +7,7 @@
        <input type="number"[(ngModel)]="stud.age"placeholder="Age">
        <input type="text" [(ngModel)]="stud.department" placeholder="Department">
        <button class="margin" style="margin-bottom: 10px;" [disabled]='!enableEdit' (click)="updateRecord()">Update</button>
-      </div>
+   </div>
   <div *ngFor='let student of StudentList; let i=index'>
     <div  class="b">
     <p class="margin">Name: {{student.firstName}} {{student.lastName}}</p>
