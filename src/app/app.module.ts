@@ -14,6 +14,8 @@ import { Utility } from './utility/utility';
 import {ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyToasterService } from './utility/MyToasterService';
+import { LoginComponent } from './views/login/login.component';
+import { StudentComponent } from './views/student/student.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MyToasterService } from './utility/MyToasterService';
     FooterComponent,
     HomeComponent,
     ContactCreateComponent,
-    ContactListComponent
+    ContactListComponent,
+    LoginComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,

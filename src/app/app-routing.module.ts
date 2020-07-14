@@ -5,12 +5,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { ContactCreateComponent } from './views/contact-create/contact-create.component';
 import { ContactListComponent } from './views/contact-list/contact-list.component';
+import { LoginComponent } from './views/login/login.component';
+import { StudentComponent } from './views/student/student.component';
 
 const routes: Routes = [
-  {path:  "", pathMatch: "full", redirectTo:  "home"},
+  {path:  "", pathMatch: "full", redirectTo:  "login"},
   {path: "home", component: HomeComponent},
   {path: "contact-create", component: ContactCreateComponent},
-  {path: "contact-list", component: ContactListComponent}
+  {path: "contact-list", component: ContactListComponent},
+  {path: 'login',component: LoginComponent},
+  {path: 'home/student/:id',component: StudentComponent}
 ];
 
 

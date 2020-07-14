@@ -53,11 +53,6 @@ export class ContactCreateComponent implements OnInit {
     }
   }
   fieldDisable() {
-    // this.form.get('firstName').disabled;
-    // this.form.get('lastName').disabled;
-    // this.form.get('Age').disabled;
-    // // tslint:disable-next-line: no-unused-expression
-    // this.form.get('department').disabled;
     this.form.disabled;
   }
 }
