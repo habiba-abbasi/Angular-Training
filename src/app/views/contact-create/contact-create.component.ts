@@ -36,6 +36,7 @@ export class ContactCreateComponent implements OnInit {
     this.contact.lastName =  this.form.value.lastName;
     this.contact.age =  this.form.value.age;
     this.contact.department =  this.form.value.department;
+    this.contact.id = Math.floor(Math.random()*(999-100+1)+100);
   }
   createContact(){
     console.log(this.contact);

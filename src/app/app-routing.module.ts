@@ -7,6 +7,7 @@ import { ContactCreateComponent } from './views/contact-create/contact-create.co
 import { ContactListComponent } from './views/contact-list/contact-list.component';
 import { LoginComponent } from './views/login/login.component';
 import { StudentComponent } from './views/student/student.component';
+import { RegisterComponent } from './views/register/register.component';
 
 const routes: Routes = [
   {path:  "", pathMatch: "full", redirectTo:  "login"},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: "contact-create", component: ContactCreateComponent},
   {path: "contact-list", component: ContactListComponent},
   {path: 'login',component: LoginComponent},
-  {path: 'home/student/:id',component: StudentComponent}
+  {path: 'home/student/:id',component: StudentComponent},
+  {path: 'register',component: RegisterComponent}
 ];
 
 

@@ -5,10 +5,10 @@
   <p class="lead">
    List of Students!
   </p>
-  <div *ngFor='let student of StudentList; let i=index'>
+  <div *ngFor='let student of Users; let i=index'>
     <div  class="b">
-    <p class="margin">Name: {{student.firstName}} </p>
-    <p class="margin">Department: {{student.department}}</p>
+    <p class="margin">Name: {{student.first_name}} {{student.last_name}} </p>
+    <!-- <p class="margin">Email: {{student.email}}</p> -->
     <button class="margin" style="margin-bottom: 10px;" (click)="viewDetail(student,i)">View Detail</button>
   </div>
   </div>

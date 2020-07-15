@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MyToasterService } from 'src/app/utility/MyToasterService';
+import { User } from 'src/app/models/user';
+import { first } from 'rxjs/operators';
+import { HttpService } from 'src/app/utility/HttpService';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +16,13 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
-
+  user: User;
   constructor(       private formBuilder: FormBuilder,
                      private route: ActivatedRoute,
                      private router: Router,
+                     public httpService: HttpService,
                      public toastr: MyToasterService) {
-
+                      this.user = new User();
          }
 
   ngOnInit(): void {
@@ -45,25 +49,28 @@ export class LoginComponent implements OnInit {
 
 
     if(this.loginForm.valid){
-        if(this.f.username.value === 'habiba' && this.f.password.value === '1234'){
-          this.loading = true;
-          this.router.navigate(['/home']);
+        // if(this.f.username.value === 'habiba' && this.f.password.value === '1234'){
+        //   this.loading = true;
+        //   this.router.navigate(['/home']);
 
-        }
-        else{
-          this.toastr.showToast('Error', 'Invalid username or password', 'Failed');
-        }
+        // }
+        // else{
+        //   this.toastr.showToast('Error', 'Invalid username or password', 'Failed');
+        // }
+        this.loading = true;
+      this.httpService.login(this.f.username.value, this.f.password.value)
+        .pipe(first())
+        .subscribe(
+            data => {
+
+                this.router.navigate(['/home']);
+            },
+            error => {
+              this.toastr.showToast('Error', error, 'Failed');
+                this.loading = false;
+            });
     }
-    // this.authenticationService.login(this.f.username.value, this.f.password.value)
-    //     .pipe(first())
-    //     .subscribe(
-    //         data => {
-    //             this.router.navigate([this.returnUrl]);
-    //         },
-    //         error => {
-    //             this.alertService.error(error);
-    //             this.loading = false;
-    //         });
+
 }
   }
 // }
